@@ -5,7 +5,7 @@ public class EtkinlikOneri {
     public static void main(String[] args) {
         Scanner girdi = new Scanner(System.in);
 
-        System.out.println("--- 🤖 Alver Labs (Güvenli Sürüm) ---");
+        System.out.println("--- 🤖 Alver Labs ---");
         while (true) {
             try {
                 System.out.println("\n--------------------------------");
@@ -62,7 +62,7 @@ public class EtkinlikOneri {
 
                     case "samsun":
                         if (sicaklik < 15) {
-                            OzelMesaj = "Karadeniz Yağmuru çok fenadır, kapalı mekanlara geçelim.";
+                            OzelMesaj = "Karadeniz Yağmuru ve soğuğu çok fenadır, kapalı mekanlara geçelim.";
                             if (kisiSayisi >= 4) {
                                 etkinlik = "Piazza veya Yeşilyurt AVM'de Bowling turnuvası.";
                                 planB = "Kapalı bir mekanda bilardo maçı.";

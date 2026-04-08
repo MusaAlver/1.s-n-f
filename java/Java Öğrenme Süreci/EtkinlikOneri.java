@@ -5,7 +5,7 @@ public class EtkinlikOneri {
     public static void main(String[] args) {
         Scanner girdi = new Scanner(System.in);
 
-        System.out.println("--- 🤖 Alver Labs ---");
+        System.out.println("--- Alver Labs ---");
         while (true) {
             try {
                 System.out.println("\n--------------------------------");
@@ -16,13 +16,13 @@ public class EtkinlikOneri {
                     break;
                 }
                 if (sehir.matches(".*\\d.*")) {
-                    System.out.println("⚠️ HATA: Şehir isminde sayı olamaz kanka, baştan alıyoruz!");
+                    System.out.println("HATA: Şehir isminde sayı olamaz kanka, baştan alıyoruz!");
                     continue;
                 }
                 System.out.print("Cinsiyetiz Nedir (Erkek/Kadın): ");
                 String cinsiyet = girdi.nextLine();
                 if (cinsiyet.matches(".*\\d.*")) {
-                    System.out.println("⚠️ HATA: Cinsiyet kısmına sayı giremezsin!");
+                    System.out.println("HATA: Cinsiyet kısmına sayı giremezsin!");
                     continue;
                 }
                 System.out.print("Yaşınız Nedir: ");
@@ -103,27 +103,27 @@ public class EtkinlikOneri {
                 }
 
                 System.out.println("\n===============================");
-                System.out.println("🎯 ALVER ÖNERİ RAPORU");
+                System.out.println("ALVER ÖNERİ RAPORU");
                 System.out.println("===============================");
-                System.out.println("📌 Önerilen Aktivite: " + etkinlik);
-                System.out.println("💬 Asistan Notu: " + OzelMesaj);
+                System.out.println("Önerilen Aktivite: " + etkinlik);
+                System.out.println("Asistan Notu: " + OzelMesaj);
                 System.out.println("-------------------------------");
                 System.out.print("Bu öneriyi beğenmedin mi? Farklı bir seçenek göreyim mi? (Evet/Hayır): ");
                 String alternatifCevap = girdi.nextLine();
 
                 if (alternatifCevap.equalsIgnoreCase("evet")) {
-                    System.out.println("\n🔄 --- B PLANI DEVREDE ---");
-                    System.out.println("📌 Alternatif Aktivite: " + planB);
-                    System.out.println("💬 Asistan Notu: Bazen değişiklik iyidir, iyi eğlenceler!");
+                    System.out.println("\n --- B PLANI DEVREDE ---");
+                    System.out.println("Alternatif Aktivite: " + planB);
+                    System.out.println("Asistan Notu: Bazen değişiklik iyidir, iyi eğlenceler!");
                 } else {
-                    System.out.println("\n✅ Harika! O zaman ilk plana sadık kalıyoruz. İyi eğlenceler!");
+                    System.out.println("\n Harika! O zaman ilk plana sadık kalıyoruz. İyi eğlenceler!");
                 }
 
             }
             catch (InputMismatchException e) {
-                System.out.println("\n🚨 KRİTİK HATA: Yaş, sıcaklık veya kişi sayısına HARF girdin!");
-                System.out.println("🚨 Bu normalde programı çökertirdi ama Alver Labs koruması devrede.");
-                System.out.println("🚨 Lütfen o kısımlara sadece SAYI gir. Sistemi baştan başlatıyorum...\n");
+                System.out.println("\n KRİTİK HATA: Yaş, sıcaklık veya kişi sayısına HARF girdin!");
+                System.out.println("Bu normalde programı çökertirdi ama Alver Labs koruması devrede.");
+                System.out.println("Lütfen o kısımlara sadece SAYI gir. Sistemi baştan başlatıyorum...\n");
                 girdi.nextLine();
             }
         }

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class etkinlikOneri {
+public class EtkinlikOneri {
     public static void main(String[] args) {
         Scanner girdi = new Scanner(System.in);
 

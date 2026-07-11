@@ -1,23 +1,22 @@
-# Alver Labs - Java Öğrenme Süreci Projesi 1
+# Etkinlik Öneri Sistemi (Öğrenme ve Gelişim Projesi)
 
-Merhaba! Ben Musa. Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. 
+Merhaba! Ben Musa. Atlas Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim.
 
-Bu proje, okuldaki Java derslerinde gördüğüm temel konuları teorikte bırakmayıp pratiğe dökmek ve kendi algoritma mantığımı geliştirmek için hazırladığım küçük bir "Kişisel Etkinlik Asistanı" uygulamasıdır. 
+Bu proje, aslında 1. sınıfın ilk döneminde Java ile yeni tanıştığım zamanlarda; temel konuları teorikte bırakmayıp pratiğe dökmek ve algoritma mantığımı tamamen deneme-yanılma yoluyla geliştirmek için hazırladığım bir "Kişisel Etkinlik Asistanı"ydı.
 
-Amacım devasa bir uygulama yazmaktan ziyade; karar yapılarını, döngüleri ve hata ayıklama süreçlerini gerçek bir senaryo üzerinde test etmekti.
+İlk başlarda amacım sadece programın çökmeden çalışmasını sağlamaktı. Ancak zamanla nesne yönelimli düşünme vizyonum geliştikçe; ilk dönem yazdığım o karmakarışık yapıyı (Spaghetti Code) temizleyip, modern yazılım prensiplerine uygun, daha profesyonel bir mühendislik mimarisine taşıdım.
 
-### 🎯 Projenin Amacı ve Mantığı
-Uygulama temel olarak kullanıcıdan; bulunduğu şehir, yaş, cinsiyet, hava sıcaklığı ve kişi sayısı gibi bilgileri alıyor. Sonrasında bu verilere bakarak kişiye özel bir etkinlik veya mekan önerisinde bulunuyor. 
+🎯 **Projenin Amacı ve Mantığı**
 
-Algoritma karmaşasını kontrol altında tutmak ve `switch-case` mantığını tam oturtabilmek adına projeyi şimdilik sadece **2 pilot şehir (İstanbul ve Samsun)** üzerinden kurguladım. İlerleyen zamanlarda öğrendikçe yeni şehirler ve özellikler eklemeyi planlıyorum.
+Uygulama temel olarak kullanıcıdan; bulunduğu şehir, yaş, cinsiyet, hava sıcaklığı ve kişi sayısı gibi bilgileri alıyor. Sonrasında bu verilere bakarak kişiye özel bir etkinlik veya mekan önerisinde bulunuyor.
 
-### 🛠️ Bu Projede Neleri Pekiştirdim?
-Kodları yazarken derslerde gördüğümüz şu temel Java araçlarını aktif olarak kullandım:
+1. sınıfın ilk dönemindeki orijinal versiyonda tüm karar mekanizmasını karmaşık `if-else` ve `switch-case` bloklarıyla kurmuştum. Bu güncel versiyonda ise algoritmik karmaşayı tamamen çözmek adına **Strategy Design Pattern (Strateji Tasarım Deseni)** kullandım. İstanbul, Samsun ve Ankara olarak kurguladığım bu sisteme, gelecekte ana kodu (OneriMotoru) hiç değiştirmeden yepyeni şehirler eklenebilmektedir.
 
-* **`Scanner` Sınıfı:** Kullanıcıdan klavye üzerinden farklı tipte veriler (`String`, `int`, `double`) almak için kullandım. Hatta veri alırken oluşan "Scanner Bug" (satır atlama) sorununu çözmeyi tecrübe ettim.
-* **`switch-case` ve `if-else` Yapıları:** Hangi şehrin seçildiğini `switch` ile ana dallara ayırıp, her şehrin kendi içinde sıcaklık ve kişi sayısına göre karar vermesini `if-else` bloklarıyla sağladım. (İç içe karar yapıları).
-* **`while(true)` Döngüsü:** Programın kullanıcı "Çıkış" diyene kadar kapanmaması ve sürekli baştan başlaması için sonsuz döngü mantığını kurdum.
-* **`try-catch` (Hata Yakalama):** En çok uğraştığım ve keyif aldığım kısımlardan biri oldu. Kullanıcı yaş veya sıcaklık kısmına sayı yerine harf girdiğinde programın çökmesini (`InputMismatchException`) engelleyip sistemi başa saran bir güvenlik duvarı ekledim.
-* **String Metotları:** `equalsIgnoreCase` ve basit Regex (`.*\\d.*`) komutlarıyla metin girişlerinin kurallara uygun olup olmadığını kontrol ettim.
+🛠️ **Bu Süreçte Neleri Tecrübe Ettim?**
 
-Okulda öğrendiklerimin üzerine koyarak ilerlemeye ve "Alver Labs" çatısı altında kendi vizyonumu kodlara dökmeye devam edeceğim. İncelediğiniz için teşekkürler!
+İlk dönemki deneme-yanılma sürecimden bugünkü refactor (kodu iyileştirme) aşamasına kadar şu mühendislik konseptlerini aktif olarak uyguladım:
+
+*   **Object-Oriented Programming (OOP):** Sistemdeki kullanıcı verilerini (`Kullanici`), çıktıları (`Oneri`) ve iş mantığını (`OneriMotoru`) birbirinden ayırarak katmanlı bir yapı kurdum. Bütün kodu tek bir `main` metoduna sıkıştırma (God Class) hatasından kurtuldum.
+*   **Strategy Pattern ve Interface Kullanımı:** Şehirlere özel algoritmaları `OneriStratejisi` arayüzü (interface) üzerinden farklı dosyalara (örn: `IstanbulStratejisi.java`) böldüm.
+*   **Kapsülleme (Encapsulation) ve Immutability:** Veri modellerimdeki değişkenleri `private final` yaparak dışarıdan yetkisiz değiştirilmelerini engelledim ve veri güvenliğini sağladım.
+*   **Güvenli Girdi Yönetimi (Exception Handling):** Kullanıcıdan veri alırken programın çökmesini engellemek için özelleştirilmiş `try-catch` blokları kullandım. İlk dönem çok sık yaşadığım "Scanner Bug" (satır atlama) ve Locale kaynaklı (virgül/nokta) sayı alma sorunlarını kalıcı olarak çözdüm.
